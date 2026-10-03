@@ -32,7 +32,7 @@ The four common elements are earth, water, fire, and air. Light is Alex's specia
 
 The game is envisioned as a living pixel-art comic, with panel-based scenes, bold outlines, pixel-font speech bubbles, and blocky onomatopoeia. Dark regions use a near-monochrome palette; restored areas gain warm light and colour. The central visual contrast is deep void darkness against golden light.
 
-The `assets/character_sprites/` directory contains transparent concept frames and horizontal sprite sheets for Alex, Athena, and Kiri. Each sheet is 1536 × 256 pixels and contains six 256 × 256 frames in a horizontal row. Alex and Athena have idle, three walk poses, jump, and cast frames; Kiri has idle, hover, dart, gust, and spin poses. These are visual starting points and may need cleanup and animation refinement before use in a playable build.
+The `acharacter_sprites/` directory contains transparent concept frames and horizontal sprite sheets for Alex, Athena, and Kiri. Each sheet is 1536 × 256 pixels and contains six 256 × 256 frames in a horizontal row. Alex and Athena have idle, three walk poses, jump, and cast frames; Kiri has idle, hover, dart, gust, and spin poses. These are visual starting points and may need cleanup and animation refinement before use in a playable build.
 
 ## Project status and next steps
 
