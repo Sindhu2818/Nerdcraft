@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8hud001"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/portrait_alex.png" id="2_port"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/bar_frame.png" id="3_frame"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/bar_hp_fill.png" id="4_hp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/bar_mp_fill.png" id="5_mp"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PortraitFrame" type="Control" parent="MarginContainer/VBoxContainer/TopRow"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/VBoxContainer/TopRow/PortraitFrame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_port")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HeroNameLabel" type="Label" parent="MarginContainer/VBoxContainer/TopRow/StatsVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "ALEX (LIGHT)"
+
+[node name="HpBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/TopRow/StatsVBox"]
+custom_minimum_size = Vector2(96, 14)
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("3_frame")
+texture_progress = ExtResource("4_hp")
+
+[node name="HpLabel" type="Label" parent="MarginContainer/VBoxContainer/TopRow/StatsVBox/HpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_font_sizes/font_size = 9
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnergyBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/TopRow/StatsVBox"]
+custom_minimum_size = Vector2(96, 14)
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("3_frame")
+texture_progress = ExtResource("5_mp")
+
+[node name="EnergyLabel" type="Label" parent="MarginContainer/VBoxContainer/TopRow/StatsVBox/EnergyBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_font_sizes/font_size = 9
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StageLabel" type="Label" parent="MarginContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+theme_override_font_sizes/font_size = 12
+text = "STAGE 1"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "SCORE: 0"
+
+[node name="StonesContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TopRow"]
+layout_mode = 2
+
+[node name="StonesLabel" type="Label" parent="MarginContainer/VBoxContainer/TopRow/StonesContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.4, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "VOID BEACONS: 2 / 2"
+
+[node name="BottomRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ControlsLabel" type="Label" parent="MarginContainer/VBoxContainer/BottomRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 0.8)
+theme_override_font_sizes/font_size = 10
+text = "[A/D]: Move  |  [W/Space]: Jump  |  [J]: Attack  |  [K]: Special Skill  |  [Tab/Q]: Swap Hero (Alex/Athena/Kiri)"

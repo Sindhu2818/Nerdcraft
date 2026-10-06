@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); file=$(echo \"$input\" | jq -r '.tool_input.file_path // empty'); if echo \"$file\" | grep -q 'project\\.godot$'; then echo 'BLOCK: Use Edit or mcp__godot-mcp__project_set_setting instead of overwriting project.godot' >&2; exit 1; fi"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "input=$(cat); file=$(echo \"$input\" | jq -r '.tool_input.file_path // .tool_response.filePath // empty'); if echo \"$file\" | grep -q '\\.gd$'; then echo \"[Hook] Validating GDScript changes...\"; godot --headless --path . --quit || exit 1; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8voidstone01"]
+
+[ext_resource type="Script" path="res://scenes/environment/void_stone.gd" id="1_stone"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/void_stone.png" id="2_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/vfx/light_texture.png" id="3_light"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_stone"]
+radius = 16.0
+height = 44.0
+
+[node name="VoidStone" type="StaticBody2D" groups=["void_stones"]]
+collision_layer = 5
+collision_mask = 3
+script = ExtResource("1_stone")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_stone")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.7, 0.1, 0.85, 1)
+energy = 1.4
+texture = ExtResource("3_light")
+texture_scale = 1.3
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -22.0
+offset_top = -32.0
+offset_right = 22.0
+offset_bottom = -26.0
+max_value = 80.0
+value = 80.0
+show_percentage = false

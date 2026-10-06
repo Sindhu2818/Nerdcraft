@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8heroparty01"]
+
+[ext_resource type="Script" path="res://scenes/characters/hero_party.gd" id="1_party"]
+[ext_resource type="PackedScene" uid="uid://c8hero001" path="res://scenes/characters/hero.tscn" id="2_hero"]
+
+[node name="HeroParty" type="Node2D"]
+script = ExtResource("1_party")
+
+[node name="Alex" parent="." instance=ExtResource("2_hero")]
+hero_type = "Alex"
+is_active = true
+
+[node name="Athena" parent="." instance=ExtResource("2_hero")]
+position = Vector2(-30, 0)
+hero_type = "Athena"
+
+[node name="Kiri" parent="." instance=ExtResource("2_hero")]
+position = Vector2(-60, -20)
+hero_type = "Kiri"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1, 1)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0

@@ -1,62 +1,81 @@
-# Light of the Last Page
+# The Light Hero: Light of the Last Page
 
-*A pixel-art action-adventure about finding the courage to open the book again.*
+A polished 2D indie pixel-art action-platformer built in **Godot 4** (`GL Compatibility` mode, itch.io web export ready), featuring a **Tri-Hero Party System**, dynamic 2D lighting, comic onomatopoeia popups, void beacon wave-defense spawners, and multi-stage boss combat.
 
-**Light of the Last Page** is an indie game by Team Nerdcraft, planned as a 2D action-adventure with elemental combat, light-based puzzles, and comic-book presentation. The project is currently in development; this README describes the proposal and current concept assets, not a finished playable build.
+---
 
-## Story
+## 🌟 Game Overview & Lore
 
-Alex is a bullied introvert and bookworm who loses his temper and vents his anger on his favourite storybook. A light bursts from its pages and pulls him into the book's world, now swallowed by darkness. Its people believe Alex is the Light Hero who can restore their world. With Athena, a flame-wielding guide, and Kiri, a playful wind spirit, Alex travels between regions, destroys the void cores spreading the darkness, and ultimately faces the Demon Lord.
+When the Void descended upon the kingdom, ancient **Void Beacons** were driven into the earth, draining reality of its color and casting the world into perpetual gloom. From the corrupted shadows emerged relentless Void Beasts led by the **Demon King Avatar**.
 
-## Gameplay
+Three champions answer the call to restore the light before the last page of history fades forever:
+1. **Alex (The Light Hero)**: Wielder of radiant energy. Specializes in piercing light blasts and emergency **Radiant Healing** to sustain the party.
+2. **Athena (The Fire Wielder)**: Master of sacred pyromancy. Unleashes high-damage fiery blasts and a devastating **Flame Dash Nova** that bursts through enemy formations.
+3. **Kiri (The Wind Spirit)**: Guardian of the zephyrs. Possesses high agility, double jump, slow falling glide, and a **Cyclone Launch** skill that knocks back surrounding void fiends.
 
-- Explore dark regions, where Alex's light, Athena's flames, and glowing objects reveal the way.
-- Solve puzzles by bending and reflecting light and combining it with elemental abilities.
-- Fight void creatures and destroy region-specific void cores.
-- Restore each region and watch colour and safe paths return as the darkness recedes.
-- Face enemies and hazards whose rules change in light and shadow.
+---
 
-The four common elements are earth, water, fire, and air. Light is Alex's special power; the Demon Lord wields the opposing special element, the Void. The proposal describes fire through Athena and air through Kiri, with earth and water to be discovered during the journey.
+## 🎮 Gameplay Features
 
-## Main characters
+### 1. Tri-Hero Party Mechanics
+* **Seamless Hero Swapping**: Switch between Alex, Athena, and Kiri anytime with `[Tab]`, `[Q]`, or keys `[1]`, `[2]`, `[3]`. Position and momentum transfer instantaneously.
+* **Companion / Familiar AI**: Uncontrolled party members trail behind the active leader, illuminate dark zones with their personal light auras, jump over obstacles, and automatically target and fire at nearby monsters.
+* **Shared Health & Dynamic Energy**: The party shares a health reserve. Each hero possesses a unique primary attack and a specialized high-impact elemental skill.
 
-| Character | Role |
-| --- | --- |
-| Alex | The player character: a bookworm turned Light Hero whose knowledge of stories gives him an unexpected edge. |
-| Athena | A flame wielder who guides Alex and brings a sharp, sarcastic voice to the group. |
-| Kiri | A wind spirit who scouts, clears fog, lifts platforms, and keeps the banter lively. |
-| The King and people | Introduce the kingdom's crisis and give Alex a reason to help. |
-| The Demon Lord | Ruler of the Void and the final opponent; his power mirrors Alex's light. |
+### 2. Void Stones & Wave-Defense Spawners
+* **Corrupted Beacons**: Each stage features heavy-HP Void Stones that pulse with dark energy and periodically spawn waves of **Void Lurkers** and armored **Void Brutes**.
+* **Dynamic Lighting Restoration**: Stages begin steeped in pitch darkness (`CanvasModulate`). Shattering each Void Stone triggers an intense screen shake, a comic "SHATTER!" burst, and permanently restores daylight to the realm.
 
-## Art direction
+### 3. Comic Book Presentation
+* **Story Prologue Cutscene**: An episodic introductory comic sequence introducing the fall of the kingdom and the rise of the champions before Stage 1.
+* **Dynamic Onomatopoeia Popups**: Kinetic popups (`"SHATTER!"`, `"BOOM!"`, `"WHOOSH!"`, `"CRACK!"`, `"LIGHT!"`) celebrate critical hits, skill activations, and stone destruction.
 
-The game is envisioned as a living pixel-art comic, with panel-based scenes, bold outlines, pixel-font speech bubbles, and blocky onomatopoeia. Dark regions use a near-monochrome palette; restored areas gain warm light and colour. The central visual contrast is deep void darkness against golden light.
+### 4. Three Distinct Stages
+* **Stage 1: The Arrival / Ruins**: Introductory stage with 2 Void Stones, ruined stone architecture, and Void Lurker waves.
+* **Stage 2: Deep Shadow Chasm**: Platforming gauntlet with moving platforms, bottomless chasm death zones with checkpoint recovery, 3 Void Stones, and tanky Void Brutes.
+* **Stage 3: The Void Core Chamber**: Boss arena containing the central 180-HP Void Core and the **Demon King Avatar** featuring 3-way dark energy barrages, shadow teleportation, and minion summoning.
 
-The `character_sprites` directory contains transparent concept frames and horizontal sprite sheets for Alex, Athena, and Kiri. Each sheet is 1536 × 256 pixels and contains six 256 × 256 frames in a horizontal row. Alex and Athena have idle, three walk poses, jump, and cast frames; Kiri has idle, hover, dart, gust, and spin poses. These are visual starting points and may need cleanup and animation refinement before use in a playable build.
+---
 
-## Project status and next steps
+## 🕹️ Controls
 
-The proposal recommends building a vertical slice first:
+| Action | Primary Key | Secondary Key | Controller / Mouse |
+|---|---|---|---|
+| **Move Left / Right** | `A` / `D` | `←` / `→` | Left Stick / D-Pad |
+| **Jump** | `W` / `Space` | `↑` | Button A |
+| **Attack (Primary)** | `J` | `Z` | Left Mouse Button |
+| **Special Skill** | `K` | `X` | Right Mouse Button |
+| **Dash (Athena)** | `L` | `C` | Shift |
+| **Next Hero** | `Tab` / `E` | — | Right Bumper |
+| **Previous Hero** | `Q` | — | Left Bumper |
+| **Direct Hero Pick** | `1` (Alex) | `2` (Athena) | `3` (Kiri) |
 
-1. Create the comic-strip prologue and Alex's arrival scene.
-2. Build the first region and its light and movement tutorial.
-3. Add an elemental puzzle, void creatures, and the first void core encounter.
-4. Show the region recovering after its core is destroyed.
-5. Expand to additional regions and the Demon Lord finale as scope allows.
+---
 
-## Running the project
+## 🛠️ Technical Specifications
 
-There is no engine project or runnable build configuration in this repository snapshot yet. Setup and launch instructions will be added once the game engine and project structure are in place.
+* **Engine**: Godot 4.7.2
+* **Renderer**: `gl_compatibility` (GL Compatibility mode ensures zero WebGL2 issues when published to itch.io).
+* **Pixel Resolution**: 640x360 retro resolution with `canvas_items` stretch mode and `default_texture_filter=0` (nearest-neighbor) for razor-sharp pixel rendering at any display resolution.
+* **Audio**: Custom synthesized 8-bit sound effects (sfx_light_blast, sfx_flame_burst, sfx_wind_dash, sfx_shatter, sfx_jump, sfx_switch, sfx_victory) and looping adventure BGM.
 
-## Team
+---
 
-Team Nerdcraft:
+## 🚀 How to Run & Play
 
-- Raga Sindhu
-- Hitesh Reddy
-- Avinash
-- Charvitha
+### Run in Godot Editor
+```bash
+godot --path .
+```
 
-## Repository
+### Launch Headless Playtest
+```bash
+godot --headless --path . "scenes/levels/level1.tscn"
+```
 
-[Sindhu2818/Nerdcraft on GitHub](https://github.com/Sindhu2818/Nerdcraft)
+### Export for Web (itch.io)
+1. Open the Godot Editor.
+2. Select **Project -> Export...**.
+3. Select the pre-configured **Web** preset (defined in `export_presets.cfg`).
+4. Click **Export Project** to compile to `build/web/index.html`.
+5. Zip the contents of `build/web/` and upload directly to itch.io with "This file will be played in the browser" enabled!

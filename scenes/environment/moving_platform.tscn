@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8movplat01"]
+
+[ext_resource type="Script" path="res://scenes/environment/moving_platform.gd" id="1_movplat"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/tileset.png" id="2_tiles"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mov"]
+size = Vector2(110, 24)
+
+[node name="MovingPlatform" type="AnimatableBody2D" groups=["terrain"]]
+collision_layer = 1
+collision_mask = 7
+sync_to_physics = true
+script = ExtResource("1_movplat")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = -55.0
+offset_top = -12.0
+offset_right = 55.0
+offset_bottom = 12.0
+texture = ExtResource("2_tiles")
+region_rect = Rect2(64, 0, 64, 64)
+patch_margin_left = 10
+patch_margin_top = 8
+patch_margin_right = 10
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mov")

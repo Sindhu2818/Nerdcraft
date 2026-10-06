@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8level2001"]
+
+[ext_resource type="Script" path="res://scenes/levels/level_base.gd" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://c8heroparty01" path="res://scenes/characters/hero_party.tscn" id="2_party"]
+[ext_resource type="PackedScene" uid="uid://c8hud001" path="res://scenes/ui/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" uid="uid://c8platform01" path="res://scenes/environment/platform.tscn" id="4_plat"]
+[ext_resource type="PackedScene" uid="uid://c8movplat01" path="res://scenes/environment/moving_platform.tscn" id="5_movplat"]
+[ext_resource type="PackedScene" uid="uid://c8voidstone01" path="res://scenes/environment/void_stone.tscn" id="6_stone"]
+[ext_resource type="PackedScene" uid="uid://c8voidlurker01" path="res://scenes/enemies/void_lurker.tscn" id="7_lurker"]
+[ext_resource type="PackedScene" uid="uid://c8voidbrute01" path="res://scenes/enemies/void_brute.tscn" id="8_brute"]
+[ext_resource type="PackedScene" uid="uid://c8exitportal01" path="res://scenes/environment/exit_portal.tscn" id="9_portal"]
+[ext_resource type="PackedScene" uid="uid://c8deathzone01" path="res://scenes/environment/death_zone.tscn" id="10_death"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_base")
+stage_number = 2
+total_stones = 3
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.15, 0.12, 0.24, 1)
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Sky" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.03, 0.09, 1)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="StartCliff" parent="Platforms" instance=ExtResource("4_plat")]
+position = Vector2(160, 240)
+size = Vector2(340, 48)
+
+[node name="ChasmIsle1" parent="Platforms" instance=ExtResource("4_plat")]
+position = Vector2(580, 220)
+size = Vector2(220, 40)
+
+[node name="HighLedge" parent="Platforms" instance=ExtResource("4_plat")]
+position = Vector2(740, 130)
+size = Vector2(160, 28)
+
+[node name="ChasmIsle2" parent="Platforms" instance=ExtResource("4_plat")]
+position = Vector2(1100, 200)
+size = Vector2(240, 44)
+
+[node name="ExitCliff" parent="Platforms" instance=ExtResource("4_plat")]
+position = Vector2(1520, 240)
+size = Vector2(320, 48)
+
+[node name="MovingPlat1" parent="Platforms" instance=ExtResource("5_movplat")]
+position = Vector2(380, 230)
+move_offset = Vector2(100, -30)
+move_duration = 2.5
+
+[node name="MovingPlat2" parent="Platforms" instance=ExtResource("5_movplat")]
+position = Vector2(900, 210)
+move_offset = Vector2(110, 0)
+move_duration = 3.0
+
+[node name="MovingPlat3" parent="Platforms" instance=ExtResource("5_movplat")]
+position = Vector2(1280, 210)
+move_offset = Vector2(120, 0)
+move_duration = 2.8
+
+[node name="VoidStones" type="Node2D" parent="."]
+
+[node name="VoidStone1" parent="VoidStones" instance=ExtResource("6_stone")]
+position = Vector2(260, 192)
+spawn_interval = 5.5
+
+[node name="VoidStone2" parent="VoidStones" instance=ExtResource("6_stone")]
+position = Vector2(740, 86)
+spawn_interval = 5.0
+spawn_brutes = true
+
+[node name="VoidStone3" parent="VoidStones" instance=ExtResource("6_stone")]
+position = Vector2(1150, 154)
+spawn_interval = 4.8
+spawn_brutes = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="VoidLurker1" parent="Enemies" instance=ExtResource("7_lurker")]
+position = Vector2(220, 200)
+
+[node name="VoidBrute1" parent="Enemies" instance=ExtResource("8_brute")]
+position = Vector2(600, 180)
+
+[node name="VoidLurker2" parent="Enemies" instance=ExtResource("7_lurker")]
+position = Vector2(1060, 160)
+
+[node name="VoidBrute2" parent="Enemies" instance=ExtResource("8_brute")]
+position = Vector2(1500, 200)
+
+[node name="ExitPortal" parent="." instance=ExtResource("9_portal")]
+position = Vector2(1600, 192)
+target_stage = 3
+
+[node name="HeroParty" parent="." instance=ExtResource("2_party")]
+position = Vector2(60, 190)
+
+[node name="PopupContainer" type="Node2D" parent="."]
+
+[node name="DeathZone" parent="." instance=ExtResource("10_death")]
+position = Vector2(850, 420)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8voidlurker01"]
+
+[ext_resource type="Script" path="res://scenes/enemies/void_lurker.gd" id="1_lurker"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/void_lurker.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lurker"]
+size = Vector2(22, 28)
+
+[node name="VoidLurker" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_lurker")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_lurker")

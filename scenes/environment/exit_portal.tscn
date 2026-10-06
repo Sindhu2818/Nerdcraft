@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8exitportal01"]
+
+[ext_resource type="Script" path="res://scenes/environment/exit_portal.gd" id="1_portal"]
+[ext_resource type="Texture2D" path="res://assets/sprites/vfx/light_spark.png" id="2_spark"]
+[ext_resource type="Texture2D" path="res://assets/sprites/vfx/light_texture.png" id="3_light"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_portal"]
+radius = 24.0
+
+[node name="ExitPortal" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_portal")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_spark")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_portal")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.95, 0.6, 1)
+energy = 1.8
+texture = ExtResource("3_light")
+texture_scale = 1.8
+
+[node name="Label" type="Label" parent="."]
+offset_left = -90.0
+offset_top = -34.0
+offset_right = 90.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 9
+text = "[LOCKED - DESTROY ALL BEACONS]"
+horizontal_alignment = 1

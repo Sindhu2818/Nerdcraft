@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8platform01"]
+
+[ext_resource type="Script" path="res://scenes/environment/platform.gd" id="1_plat"]
+[ext_resource type="Texture2D" path="res://assets/sprites/environment/tileset.png" id="2_tiles"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plat"]
+resource_local_to_scene = true
+size = Vector2(160, 32)
+
+[node name="Platform" type="StaticBody2D" groups=["terrain"]]
+collision_layer = 1
+collision_mask = 7
+script = ExtResource("1_plat")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = -80.0
+offset_top = -16.0
+offset_right = 80.0
+offset_bottom = 16.0
+texture = ExtResource("2_tiles")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_plat")

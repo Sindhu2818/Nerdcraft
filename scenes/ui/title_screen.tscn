@@ -1,0 +1,154 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8titlescreen01"]
+
+[ext_resource type="Script" path="res://scenes/ui/title_screen.gd" id="1_title"]
+[ext_resource type="Texture2D" path="res://assets/comic/prologue_opening.png" id="2_bg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/vfx/comic_light.png" id="3_logo"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_title")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.35, 0.35, 0.45, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="GloomTint" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.04, 0.1, 0.6)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LogoIcon" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.6, 1)
+theme_override_colors/font_shadow_color = Color(0.1, 0.05, 0.2, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 22
+text = "THE LIGHT HERO"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.95, 1)
+theme_override_font_sizes/font_size = 13
+text = "LIGHT OF THE LAST PAGE"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "START ADVENTURE"
+
+[node name="Stage1Button" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "QUICK PLAY (STAGE 1)"
+
+[node name="ControlsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "HOW TO PLAY & CONTROLS"
+
+[node name="ControlsModal" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -140.0
+offset_right = 220.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="ControlsModal"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="VBox" type="VBoxContainer" parent="ControlsModal/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="ControlsModal/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 14
+text = "TRI-HERO PARTY & CONTROLS"
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="ControlsModal/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "• MOVE: [A/D] or Left/Right Arrow
+• JUMP: [W] or [Space] (Kiri has Double Jump & Slow Fall!)
+• ATTACK: [J] or [Z] or Left Click
+• SPECIAL SKILL: [K] or [X]
+    - Alex: Radiant Heal (recovers 25 HP) & Light Blast
+    - Athena: Flame Dash Nova (charges through foes)
+    - Kiri: Cyclone Launch & Knockback
+• SWAP ACTIVE HERO: [Tab] or [Q] or Keys 1/2/3
+• COMPANIONS: Uncontrolled party members trail beside you, illuminate the darkness, and automatically assist attack monsters!
+• OBJECTIVE: Shatter all Void Stones to break the darkness and open the portal!"
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="ControlsModal/Margin/VBox"]
+custom_minimum_size = Vector2(100, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CLOSE"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Stage1Button" to="." method="_on_stage1_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="ControlsModal/Margin/VBox/CloseButton" to="." method="_on_close_controls_pressed"]

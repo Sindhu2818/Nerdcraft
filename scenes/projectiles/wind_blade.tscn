@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8windblade01"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/wind_blade.gd" id="1_wind"]
+[ext_resource type="Texture2D" path="res://assets/sprites/vfx/wind_blade.png" id="2_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/vfx/light_texture.png" id="3_light"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wind"]
+radius = 11.0
+
+[node name="WindBlade" type="Area2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_wind")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wind")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.6, 0.95, 0.9, 1)
+energy = 1.1
+texture = ExtResource("3_light")
+texture_scale = 0.8

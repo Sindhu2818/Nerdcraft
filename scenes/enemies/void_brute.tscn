@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8voidbrute01"]
+
+[ext_resource type="Script" path="res://scenes/enemies/void_brute.gd" id="1_brute"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/void_brute.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brute"]
+size = Vector2(34, 42)
+
+[node name="VoidBrute" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_brute")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_brute")

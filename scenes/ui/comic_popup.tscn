@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8comicpop01"]
+
+[ext_resource type="Script" path="res://scenes/ui/comic_popup.gd" id="1_popup"]
+[ext_resource type="Texture2D" path="res://assets/sprites/vfx/comic_boom.png" id="2_tex"]
+
+[node name="ComicPopup" type="Node2D"]
+z_index = 20
+script = ExtResource("1_popup")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
